@@ -1,0 +1,6 @@
+C:\Projects\DungeonCrawl\XRpgLibrary\bin\x86\Debug\XRpgLibrary.dll
+C:\Projects\DungeonCrawl\XRpgLibrary\bin\x86\Debug\XRpgLibrary.pdb
+C:\Projects\DungeonCrawl\XRpgLibrary\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Projects\DungeonCrawl\XRpgLibrary\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Projects\DungeonCrawl\XRpgLibrary\obj\x86\Debug\XRpgLibrary.dll
+C:\Projects\DungeonCrawl\XRpgLibrary\obj\x86\Debug\XRpgLibrary.pdb
