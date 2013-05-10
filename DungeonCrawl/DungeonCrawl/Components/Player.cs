@@ -102,7 +102,7 @@ namespace DungeonCrawl.Components
                 if (fireball.Visible == false)
                 {
                     createNew = false;
-                    fireball.Fire(GetPosition(), 200.0f, direction);
+                    fireball.Fire(GetPosition(), 1000.0f, direction);
                     break;
                 }
             }
@@ -111,9 +111,38 @@ namespace DungeonCrawl.Components
             {
                 var fireball = new Fireball(@"PlayerSprites\femalefighter", animations, 800.0f, 1.0f);
                 fireball.LoadContent(_contentManager);
-                fireball.Fire(GetPosition(), 200.0f, new Vector2(1, 0));
+                fireball.Fire(GetPosition(), 1000.0f, direction);
                 _fireballs.Add(fireball);
             }
+        }
+
+        private void LockSprite()
+        {
+            if (Sprite.Position.X < 0)
+            {
+                Vector2 position = Sprite.Position;
+                position.X = 0;
+                Sprite.Position = position;
+            }
+            if (Sprite.Position.X + Sprite.Width > _gameRef.ScreenWidth)
+            {
+                Vector2 position = Sprite.Position;
+                position.X = _gameRef.ScreenWidth - Sprite.Width;
+                Sprite.Position = position;
+            }
+            if (Sprite.Position.Y < 0)
+            {
+                Vector2 position = Sprite.Position;
+                position.Y = 0;
+                Sprite.Position = position;
+            }
+            if (Sprite.Position.Y + Sprite.Height > _gameRef.ScreenHeight)
+            {
+                Vector2 position = Sprite.Position;
+                position.Y = _gameRef.ScreenHeight - Sprite.Height;
+                Sprite.Position = position;
+            }
+
         }
 
         public void LoadContent(ContentManager contentManager)
@@ -167,6 +196,7 @@ namespace DungeonCrawl.Components
             {
                 Sprite.IsAnimating = false;
             }
+            LockSprite();
 
             UpdateFireball(gameTime);
         }

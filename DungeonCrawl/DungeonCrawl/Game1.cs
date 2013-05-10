@@ -19,18 +19,27 @@ namespace DungeonCrawl
         private Enemy _enemy;
         private Player _player;
         private SpriteBatch _spriteBatch;
-
+        public int ScreenWidth = 900;
+        public int ScreenHeight = 600;
 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
 
-            _graphics.PreferredBackBufferWidth = 1900;
-            _graphics.PreferredBackBufferHeight = 1000;
+            _graphics.PreferredBackBufferWidth = ScreenWidth;
+            _graphics.PreferredBackBufferHeight = ScreenHeight;
 
             Content.RootDirectory = "Content";
 
             Components.Add(new InputHandler(this));
+        }
+
+        protected override void Initialize()
+        {
+            var form = (System.Windows.Forms.Form)System.Windows.Forms.Control.FromHandle(Window.Handle);
+            form.Location = new System.Drawing.Point(0, 10);
+
+            base.Initialize();
         }
 
         /// <summary>
