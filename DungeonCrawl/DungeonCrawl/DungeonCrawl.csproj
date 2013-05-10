@@ -112,6 +112,7 @@
     <Compile Include="Components\CollisionHandler.cs" />
     <Compile Include="Components\Enemy.cs" />
     <Compile Include="Components\Player.cs" />
+    <Compile Include="GameScreens\BaseGameState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />

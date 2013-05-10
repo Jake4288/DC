@@ -19,6 +19,7 @@ namespace DungeonCrawl
         private Enemy _enemy;
         private Player _player;
         private SpriteBatch _spriteBatch;
+        private GameStateManager _stateManager;
         public int ScreenWidth = 900;
         public int ScreenHeight = 600;
 
@@ -32,6 +33,9 @@ namespace DungeonCrawl
             Content.RootDirectory = "Content";
 
             Components.Add(new InputHandler(this));
+
+            _stateManager = new GameStateManager(this);
+            Components.Add(_stateManager);
         }
 
         protected override void Initialize()
