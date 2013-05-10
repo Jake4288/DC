@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,107 +9,89 @@ namespace XRpgLibrary.SpriteClasses
     {
         #region Field Region
 
-        Dictionary<AnimationKey, Animation> animations;
-        AnimationKey currentAnimation;
-        bool isAnimating;
+        private readonly Dictionary<AnimationKey, Animation> _animations;
+        private readonly string _asset;
 
-        string asset;
-        Texture2D texture;
-        Vector2 position;
-        Vector2 velocity;
-        float speed;
-        float scale;
+        private float _speed;
+        private Texture2D _texture;
+        private Vector2 _velocity;
 
         #endregion
 
         #region Property Region
 
-        public AnimationKey CurrentAnimation
-        {
-            get { return currentAnimation; }
-            set { currentAnimation = value; }
-        }
+        public AnimationKey CurrentAnimation { get; set; }
 
-        public bool IsAnimating
-        {
-            get { return isAnimating; }
-            set { isAnimating = value; }
-        }
+        public bool IsAnimating { get; set; }
 
         public int Width
         {
-            get { return animations[currentAnimation].FrameWidth; }
+            get { return _animations[CurrentAnimation].FrameWidth; }
         }
 
         public int Height
         {
-            get { return animations[currentAnimation].FrameHeight; }
+            get { return _animations[CurrentAnimation].FrameHeight; }
         }
 
         public float Speed
         {
-            get { return speed; }
-            set { speed = MathHelper.Clamp(speed, 1.0f, 400.0f); }
+            get { return _speed; }
+            set { _speed = MathHelper.Clamp(value, 1.0f, 400.0f); }
         }
 
-        public float Scale
-        {
-            get { return scale; }
-            set { scale = value; }
-        }
+        public float Scale { get; set; }
 
-        public Vector2 Position
-        {
-            get { return position; }
-            set { position = value; }
-        }
+        public Vector2 Position { get; set; }
 
         public Vector2 Velocity
         {
-            get { return velocity; }
+            get { return _velocity; }
             set
             {
-                velocity = value;
-                if (velocity != Vector2.Zero)
-                    velocity.Normalize();
+                _velocity = value;
+                if (_velocity != Vector2.Zero)
+                    _velocity.Normalize();
             }
         }
 
-        public Rectangle collisionRectangle
+        public Rectangle CollisionRectangle
         {
-            get { return new Rectangle((int)position.X, (int)position.Y, (int)(Width * scale), (int)(Height * scale));  }
+            get { return new Rectangle((int) Position.X, (int) Position.Y, (int) (Width*Scale), (int) (Height*Scale)); }
         }
+
         #endregion
 
         #region Constructor Region
 
         public AnimatedSprite(string asset, Dictionary<AnimationKey, Animation> animation, float speed, float scale)
         {
-            this.asset = asset;
-            this.speed = speed;
-            this.scale = scale;
-            animations = new Dictionary<AnimationKey, Animation>();
+            _asset = asset;
+            _speed = speed;
+            Scale = scale;
+            _animations = new Dictionary<AnimationKey, Animation>();
 
-            foreach (AnimationKey key in animation.Keys)
-                animations.Add(key, (Animation)animation[key].Clone());
+            foreach (var key in animation.Keys)
+                _animations.Add(key, (Animation) animation[key].Clone());
         }
 
         #endregion
 
         public void LoadContent(ContentManager contentManager)
         {
-            texture = contentManager.Load<Texture2D>(asset);
+            _texture = contentManager.Load<Texture2D>(_asset);
         }
 
         public void Update(GameTime gameTime)
         {
-            if (isAnimating)
-                animations[currentAnimation].Update(gameTime);
+            if (IsAnimating)
+                _animations[CurrentAnimation].Update(gameTime);
         }
 
         public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, animations[currentAnimation].CurrentFrameRect, Color.White,0.0f,Vector2.Zero,scale,SpriteEffects.None,0);
+            spriteBatch.Draw(_texture, Position, _animations[CurrentAnimation].CurrentFrameRect, Color.White, 0.0f,
+                             Vector2.Zero, Scale, SpriteEffects.None, 0);
         }
     }
 }

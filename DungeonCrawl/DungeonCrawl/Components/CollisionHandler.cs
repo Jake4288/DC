@@ -1,49 +1,36 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-
 using XRpgLibrary.SpriteClasses;
-
 
 namespace DungeonCrawl.Components
 {
-
     public class CollisionHandler
     {
-
-        Player player;
-        Enemy enemy;
-        Game game;
-        List<Fireball> fireballs = new List<Fireball>();
+        private readonly Enemy _enemy;
+        private readonly List<Fireball> _fireballs = new List<Fireball>();
+        private readonly Game _game;
+        private readonly Player _player;
 
         public CollisionHandler(Game game, Player player, Enemy enemy)
         {
-            this.player = player;
-            this.enemy = enemy;
-            this.game = game;
+            _player = player;
+            _enemy = enemy;
+            _game = game;
 
-            foreach (Fireball fireball in player.Fireballs)
+            foreach (var fireball in player.Fireballs)
             {
-                fireballs.Add(fireball);
+                _fireballs.Add(fireball);
             }
         }
 
 
-        public  void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
-                foreach (Fireball fireball in player.Fireballs)
-                {
-                    if (fireball.collisionRectangle.Intersects(enemy.Sprite.collisionRectangle))
-                        game.Exit();
-                }
-
+            foreach (var fireball in _player.Fireballs)
+            {
+                if (fireball.CollisionRectangle.Intersects(_enemy.Sprite.CollisionRectangle))
+                    _game.Exit();
+            }
         }
     }
 }

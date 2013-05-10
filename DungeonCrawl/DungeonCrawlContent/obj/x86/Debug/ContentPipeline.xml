@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Projects\DungeonCrawl\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\femalefighter.xnb</Output>
-      <Time>2010-12-07T14:44:10-06:00</Time>
+      <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\femalefighter.xnb</Output>
+      <Time>2013-05-09T18:58:27.3834357-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\femalepriest.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Projects\DungeonCrawl\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\femalepriest.xnb</Output>
-      <Time>2010-12-07T14:44:10-06:00</Time>
+      <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\femalepriest.xnb</Output>
+      <Time>2013-05-09T18:58:27.3844358-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\femalerogue.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Projects\DungeonCrawl\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\femalerogue.xnb</Output>
-      <Time>2010-12-07T14:44:10-06:00</Time>
+      <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\femalerogue.xnb</Output>
+      <Time>2013-05-09T18:58:27.3854358-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\femalewizard.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Projects\DungeonCrawl\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\femalewizard.xnb</Output>
-      <Time>2010-12-07T14:44:10-06:00</Time>
+      <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\femalewizard.xnb</Output>
+      <Time>2013-05-09T18:58:27.3864359-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\malefighter.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Projects\DungeonCrawl\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\malefighter.xnb</Output>
-      <Time>2010-12-07T14:44:10-06:00</Time>
+      <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\malefighter.xnb</Output>
+      <Time>2013-05-09T18:58:27.3864359-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\malepriest.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Projects\DungeonCrawl\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\malepriest.xnb</Output>
-      <Time>2010-12-07T14:44:10-06:00</Time>
+      <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\malepriest.xnb</Output>
+      <Time>2013-05-09T18:58:27.3874359-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\malerogue.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Projects\DungeonCrawl\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\malerogue.xnb</Output>
-      <Time>2010-12-07T14:44:10-06:00</Time>
+      <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\malerogue.xnb</Output>
+      <Time>2013-05-09T18:58:27.3874359-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\malewizard.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Projects\DungeonCrawl\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\malewizard.xnb</Output>
-      <Time>2010-12-07T14:44:10-06:00</Time>
+      <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\malewizard.xnb</Output>
+      <Time>2013-05-09T18:58:27.388436-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -79,10 +79,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Projects\DungeonCrawl\DungeonCrawl\DungeonCrawlContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Projects\DungeonCrawl\DungeonCrawl\DungeonCrawl\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Projects\DungeonCrawl\DungeonCrawl\DungeonCrawlContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Projects\DungeonCrawl\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawlContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawlContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -111,7 +111,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-04-01T14:58:34.251141-05:00</Value>
+        <Value>2013-03-29T23:55:02.783033-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

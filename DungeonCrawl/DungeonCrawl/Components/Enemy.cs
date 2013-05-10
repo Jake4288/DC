@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-
-using XRpgLibrary;
-using XRpgLibrary.SpriteClasses;
 using XRpgLibrary.CharacterClasses;
+using XRpgLibrary.SpriteClasses;
 
 namespace DungeonCrawl.Components
 {
@@ -18,29 +10,27 @@ namespace DungeonCrawl.Components
     {
         #region Field Region
 
-        Game1 gameRef;
-        readonly Character character;
-        readonly Player player;
-
+        private readonly Character _character;
+        private readonly Player _player;
+        private Game1 _gameRef;
 
         #endregion
 
         #region Property Region
 
-
         public AnimatedSprite Sprite
         {
-            get { return character.Sprite; }
+            get { return _character.Sprite; }
         }
 
         public Character Character
         {
-            get { return character; }
+            get { return _character; }
         }
 
         public Player Player
         {
-            get { return player; }
+            get { return _player; }
         }
 
         #endregion
@@ -49,25 +39,24 @@ namespace DungeonCrawl.Components
 
         public Enemy(Game game, Character character, Player player)
         {
-            gameRef = (Game1)game;
-            this.character = character;
-            this.player = player;
+            _gameRef = (Game1) game;
+            _character = character;
+            _player = player;
         }
 
         #endregion
 
         public void LoadContent(ContentManager contentManager)
         {
-            character.LoadContent(contentManager);
+            _character.LoadContent(contentManager);
         }
 
         public void Update(GameTime gameTime)
         {
-
             Sprite.Update(gameTime);
 
-            Vector2 motion = new Vector2();
-            Vector2 playerpos = player.GetPosition();
+            var motion = new Vector2();
+            Vector2 playerpos = _player.GetPosition();
 
             if (playerpos.X < Sprite.Position.X)
                 motion.X = -1;
@@ -84,19 +73,17 @@ namespace DungeonCrawl.Components
                 Sprite.IsAnimating = true;
                 motion.Normalize();
 
-                Sprite.Position += motion * Sprite.Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                Sprite.Position += motion*Sprite.Speed*(float) gameTime.ElapsedGameTime.TotalSeconds;
             }
             else
             {
                 Sprite.IsAnimating = false;
             }
-
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            character.Draw(gameTime, spriteBatch);
+            _character.Draw(gameTime, spriteBatch);
         }
-
     }
 }

@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-
 using XRpgLibrary;
-using XRpgLibrary.SpriteClasses;
 using XRpgLibrary.CharacterClasses;
+using XRpgLibrary.SpriteClasses;
 
 namespace DungeonCrawl.Components
 {
@@ -18,40 +13,38 @@ namespace DungeonCrawl.Components
     {
         #region Field Region
 
-        Game1 gameRef;
-        readonly Character character;
-        List<Fireball> fireballs = new List<Fireball>();
-        ContentManager contentManager;
+        private readonly Character _character;
+        private readonly List<Fireball> _fireballs = new List<Fireball>();
+        private ContentManager _contentManager;
+        private Game1 _gameRef;
 
         #endregion
 
         #region Property Region
 
-
         public AnimatedSprite Sprite
         {
-            get { return character.Sprite; }
+            get { return _character.Sprite; }
         }
 
         public Character Character
         {
-            get { return character; }
+            get { return _character; }
         }
 
         public List<Fireball> Fireballs
         {
-            get { return fireballs; }
+            get { return _fireballs; }
         }
-
 
         #endregion
 
         #region Constructor Region
 
-        public Player(Microsoft.Xna.Framework.Game game, Character character)
+        public Player(Game game, Character character)
         {
-            gameRef = (Game1)game;
-            this.character = character;
+            _gameRef = (Game1) game;
+            _character = character;
         }
 
         #endregion
@@ -63,14 +56,14 @@ namespace DungeonCrawl.Components
 
         private void UpdateFireball(GameTime gameTime)
         {
-            foreach (Fireball fireball in fireballs)
+            foreach (Fireball fireball in _fireballs)
             {
                 fireball.Update(gameTime);
             }
 
             if (InputHandler.KeyPressed(Keys.Right))
             {
-                ShootFireball(new Vector2(1,0));
+                ShootFireball(new Vector2(1, 0));
             }
             else if (InputHandler.KeyPressed(Keys.Left))
             {
@@ -88,9 +81,9 @@ namespace DungeonCrawl.Components
 
         private void ShootFireball(Vector2 direction)
         {
-            Dictionary<AnimationKey, Animation> animations = new Dictionary<AnimationKey, Animation>();
+            var animations = new Dictionary<AnimationKey, Animation>();
 
-            Animation animation = new Animation(3, 32, 32, 0, 0);
+            var animation = new Animation(3, 32, 32, 0, 0);
             animations.Add(AnimationKey.Down, animation);
 
             animation = new Animation(3, 32, 32, 0, 32);
@@ -104,7 +97,7 @@ namespace DungeonCrawl.Components
 
 
             bool createNew = true;
-            foreach (Fireball fireball in fireballs)
+            foreach (Fireball fireball in _fireballs)
             {
                 if (fireball.Visible == false)
                 {
@@ -114,34 +107,32 @@ namespace DungeonCrawl.Components
                 }
             }
 
-            if (createNew == true)
+            if (createNew)
             {
-                Fireball fireball = new Fireball(@"PlayerSprites\femalefighter", animations, 800.0f, 1.0f);
-                fireball.LoadContent(contentManager);
+                var fireball = new Fireball(@"PlayerSprites\femalefighter", animations, 800.0f, 1.0f);
+                fireball.LoadContent(_contentManager);
                 fireball.Fire(GetPosition(), 200.0f, new Vector2(1, 0));
-                fireballs.Add(fireball);
+                _fireballs.Add(fireball);
             }
         }
 
         public void LoadContent(ContentManager contentManager)
         {
-            this.contentManager = contentManager;
+            _contentManager = contentManager;
 
-            foreach (Fireball fireball in fireballs)
+            foreach (Fireball fireball in _fireballs)
             {
                 fireball.LoadContent(contentManager);
             }
 
-            character.LoadContent(contentManager);
+            _character.LoadContent(contentManager);
         }
 
         public void Update(GameTime gameTime)
         {
-            KeyboardState keyboardState = Keyboard.GetState();
-
             Sprite.Update(gameTime);
 
-            Vector2 motion = new Vector2();
+            var motion = new Vector2();
 
             if (InputHandler.KeyDown(Keys.W))
             {
@@ -149,7 +140,7 @@ namespace DungeonCrawl.Components
                 motion.Y = -1;
             }
             else if (InputHandler.KeyDown(Keys.S) ||
-                InputHandler.ButtonDown(Buttons.LeftThumbstickDown, PlayerIndex.One))
+                     InputHandler.ButtonDown(Buttons.LeftThumbstickDown, PlayerIndex.One))
             {
                 Sprite.CurrentAnimation = AnimationKey.Down;
                 motion.Y = 1;
@@ -170,7 +161,7 @@ namespace DungeonCrawl.Components
                 Sprite.IsAnimating = true;
                 motion.Normalize();
 
-                Sprite.Position += motion * Sprite.Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                Sprite.Position += motion*Sprite.Speed*(float) gameTime.ElapsedGameTime.TotalSeconds;
             }
             else
             {
@@ -178,18 +169,16 @@ namespace DungeonCrawl.Components
             }
 
             UpdateFireball(gameTime);
-
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            foreach (Fireball fireball in fireballs)
+            foreach (Fireball fireball in _fireballs)
             {
                 fireball.Draw(gameTime, spriteBatch);
             }
 
-            character.Draw(gameTime, spriteBatch);
+            _character.Draw(gameTime, spriteBatch);
         }
-
     }
 }

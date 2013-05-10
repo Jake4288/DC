@@ -1,68 +1,59 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Microsoft.Xna.Framework;
 
 namespace XRpgLibrary.SpriteClasses
 {
-    public enum AnimationKey { Down, Left, Right, Up }
+    public enum AnimationKey
+    {
+        Down,
+        Left,
+        Right,
+        Up
+    }
 
     public class Animation : ICloneable
     {
-
         #region Field Region
 
-        Rectangle[] frames;
-        int framesPerSecond;
-        TimeSpan frameLength;
-        TimeSpan frameTimer;
-        int currentFrame;
-        int frameWidth;
-        int frameHeight;
+        private readonly Rectangle[] _frames;
+        private int _currentFrame;
+        private TimeSpan _frameLength;
+        private TimeSpan _frameTimer;
+        private int _framesPerSecond;
 
         #endregion
 
         #region Property Region
+
         public int FramesPerSecond
         {
-            get { return framesPerSecond; }
+            get { return _framesPerSecond; }
             set
             {
                 if (value < 1)
-                    framesPerSecond = 1;
+                    _framesPerSecond = 1;
                 else if (value > 60)
-                    framesPerSecond = 60;
+                    _framesPerSecond = 60;
                 else
-                    framesPerSecond = value;
-                frameLength = TimeSpan.FromSeconds(1 / (double)framesPerSecond);
+                    _framesPerSecond = value;
+                _frameLength = TimeSpan.FromSeconds(1/(double) _framesPerSecond);
             }
         }
 
         public Rectangle CurrentFrameRect
         {
-            get { return frames[currentFrame]; }
+            get { return _frames[_currentFrame]; }
         }
 
         public int CurrentFrame
         {
-            get { return currentFrame; }
-            set
-            {
-                currentFrame = (int)MathHelper.Clamp(value, 0, frames.Length - 1);
-            }
+            get { return _currentFrame; }
+            set { _currentFrame = (int) MathHelper.Clamp(value, 0, _frames.Length - 1); }
         }
 
-        public int FrameWidth
-        {
-            get { return frameWidth; }
-        }
+        public int FrameWidth { get; private set; }
 
-        public int FrameHeight
-        {
-            get { return frameHeight; }
-        }
+        public int FrameHeight { get; private set; }
 
         #endregion
 
@@ -70,13 +61,13 @@ namespace XRpgLibrary.SpriteClasses
 
         public Animation(int frameCount, int frameWidth, int frameHeight, int xOffset, int yOffset)
         {
-            frames = new Rectangle[frameCount];
-            this.frameWidth = frameWidth;
-            this.frameHeight = frameHeight;
+            _frames = new Rectangle[frameCount];
+            FrameWidth = frameWidth;
+            FrameHeight = frameHeight;
 
             for (int i = 0; i < frameCount; i++)
             {
-                frames[i] = new Rectangle(xOffset + (frameWidth * i), yOffset, frameWidth, frameHeight);
+                _frames[i] = new Rectangle(xOffset + (frameWidth*i), yOffset, frameWidth, frameHeight);
             }
             FramesPerSecond = 15;
             Reset();
@@ -84,38 +75,42 @@ namespace XRpgLibrary.SpriteClasses
 
         private Animation(Animation animation)
         {
-            this.frames = animation.frames;
+            _frames = animation._frames;
             FramesPerSecond = 15;
+        }
+
+        #endregion
+
+        #region ICloneable Members
+
+        public object Clone()
+        {
+            var animationClone = new Animation(this);
+
+            animationClone.FrameWidth = FrameWidth;
+            animationClone.FrameHeight = FrameHeight;
+            animationClone.Reset();
+
+            return animationClone;
         }
 
         #endregion
 
         public void Update(GameTime gameTime)
         {
-            frameTimer += gameTime.ElapsedGameTime;
+            _frameTimer += gameTime.ElapsedGameTime;
 
-            if (frameTimer >= frameLength)
+            if (_frameTimer >= _frameLength)
             {
-                frameTimer = TimeSpan.Zero;
-                currentFrame = (currentFrame + 1) % frames.Length;
+                _frameTimer = TimeSpan.Zero;
+                _currentFrame = (_currentFrame + 1) % _frames.Length;
             }
         }
 
         public void Reset()
         {
-            currentFrame = 0;
-            frameTimer = TimeSpan.Zero;
-        }
-
-        public object Clone()
-        {
-            Animation animationClone = new Animation(this);
-
-            animationClone.frameWidth = this.frameWidth;
-            animationClone.frameHeight = this.frameHeight;
-            animationClone.Reset();
-
-            return animationClone;
+            _currentFrame = 0;
+            _frameTimer = TimeSpan.Zero;
         }
     }
 }
