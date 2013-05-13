@@ -6,7 +6,9 @@ namespace DungeonCrawl
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+// ReSharper disable UnusedParameter.Local
         private static void Main(string[] args)
+// ReSharper restore UnusedParameter.Local
         {
             using (var game = new Game1())
             {

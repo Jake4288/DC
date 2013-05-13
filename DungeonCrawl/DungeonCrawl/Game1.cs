@@ -1,12 +1,11 @@
-using System.Collections.Generic;
-using DungeonCrawl.Components;
+using System.Windows.Forms;
+using DungeonCrawl.GameScreens;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using DungeonCrawl.GameScreens;
 using XRpgLibrary;
-using XRpgLibrary.CharacterClasses;
-using XRpgLibrary.SpriteClasses;
+using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
+using Point = System.Drawing.Point;
 
 namespace DungeonCrawl
 {
@@ -15,23 +14,25 @@ namespace DungeonCrawl
     /// </summary>
     public class Game1 : Game
     {
+        public readonly Rectangle ScreenRectangle;
+// ReSharper disable UnaccessedField.Local
         private readonly GraphicsDeviceManager _graphics;
-        public SpriteBatch _spriteBatch;
-        private GameStateManager _stateManager;
-        public TitleScreen TitleScreen;
+// ReSharper restore UnaccessedField.Local
+        private readonly GameStateManager _stateManager;
         public GamePlayScreen GamePlayScreen;
 
-        public int ScreenWidth = 900;
         public int ScreenHeight = 600;
-
-        public readonly Rectangle ScreenRectangle;
+        public int ScreenWidth = 900;
+        public TitleScreen TitleScreen;
+        public SpriteBatch SpriteBatch;
 
         public Game1()
         {
-            _graphics = new GraphicsDeviceManager(this);
-
-            _graphics.PreferredBackBufferWidth = ScreenWidth;
-            _graphics.PreferredBackBufferHeight = ScreenHeight;
+            _graphics = new GraphicsDeviceManager(this)
+                            {
+                                PreferredBackBufferWidth = ScreenWidth,
+                                PreferredBackBufferHeight = ScreenHeight
+                            };
 
             ScreenRectangle = new Rectangle(0, 0, ScreenWidth, ScreenHeight);
 
@@ -50,8 +51,8 @@ namespace DungeonCrawl
 
         protected override void Initialize()
         {
-            var form = (System.Windows.Forms.Form)System.Windows.Forms.Control.FromHandle(Window.Handle);
-            form.Location = new System.Drawing.Point(0, 10);
+            var form = (Form) Control.FromHandle(Window.Handle);
+            form.Location = new Point(0, 10);
 
             base.Initialize();
         }
@@ -63,8 +64,7 @@ namespace DungeonCrawl
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            SpriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
         protected override void UnloadContent()

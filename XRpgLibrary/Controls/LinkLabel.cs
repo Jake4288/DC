@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace XRpgLibrary.Controls
 {
-    public class LinkLabel : Control
+    public sealed class LinkLabel : Control
     {
         #region Fields and Properties
 
-        Color _selectedColor = Color.Red;
+        private Color _selectedColor = Color.Red;
 
         public Color SelectedColor
         {
@@ -40,10 +35,7 @@ namespace XRpgLibrary.Controls
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (hasFocus)
-                spriteBatch.DrawString(SpriteFont, Text, Position, _selectedColor);
-            else
-                spriteBatch.DrawString(SpriteFont, Text, Position, Color);
+            spriteBatch.DrawString(SpriteFont, Text, Position, HasFocus ? _selectedColor : Color);
         }
 
         public override void HandleInput(PlayerIndex playerIndex)
@@ -52,7 +44,7 @@ namespace XRpgLibrary.Controls
                 return;
 
             if (InputHandler.KeyReleased(Keys.Enter) || InputHandler.ButtonReleased(Buttons.A, playerIndex))
-                base.OnSelected(null);
+                OnSelected(null);
         }
     }
 }

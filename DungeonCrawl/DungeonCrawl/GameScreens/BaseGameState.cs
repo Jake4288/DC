@@ -1,60 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-
 using XRpgLibrary;
 using XRpgLibrary.Controls;
 
 namespace DungeonCrawl.GameScreens
 {
-    public abstract partial class BaseGameState : GameState
+    public abstract class BaseGameState : GameState
     {
         #region Fields region
 
-        protected Game1 GameRef;
-
         protected ControlManager ControlManager;
-
-        protected PlayerIndex playerIndexInControl;
+        protected Game1 GameRef;
 
         protected BaseGameState TransitionTo;
 
         protected bool Transitioning;
 
-        protected ChangeType changeType;
+        protected ChangeType ChangeType;
+        protected PlayerIndex PlayerIndexInControl;
 
-        protected TimeSpan transitionTimer;
-        protected TimeSpan transitionInterval = TimeSpan.FromSeconds(0.5);
+        protected TimeSpan TransitionInterval = TimeSpan.FromSeconds(0.5);
+        protected TimeSpan TransitionTimer;
 
         #endregion
 
         #region Constructor Region
 
-        public BaseGameState(Game game, GameStateManager manager) : base(game, manager)
+        protected BaseGameState(Game game, GameStateManager manager) : base(game, manager)
         {
-            GameRef = (Game1)game;
+            GameRef = (Game1) game;
 
-            playerIndexInControl = PlayerIndex.One;
+            PlayerIndexInControl = PlayerIndex.One;
         }
 
         #endregion
 
-        public override void Initialize()
-        {
-            base.Initialize();
-        }
-
         protected override void LoadContent()
         {
-            ContentManager Content = Game.Content;
+            ContentManager content = Game.Content;
 
-            SpriteFont menuFont = Content.Load<SpriteFont>(@"Fonts\ControlFont");
+            var menuFont = content.Load<SpriteFont>(@"Fonts\ControlFont");
             ControlManager = new ControlManager(menuFont);
 
             base.LoadContent();
@@ -64,12 +51,12 @@ namespace DungeonCrawl.GameScreens
         {
             if (Transitioning)
             {
-                transitionTimer += gameTime.ElapsedGameTime;
+                TransitionTimer += gameTime.ElapsedGameTime;
 
-                if (transitionTimer >= transitionInterval)
+                if (TransitionTimer >= TransitionInterval)
                 {
                     Transitioning = false;
-                    switch (changeType)
+                    switch (ChangeType)
                     {
                         case ChangeType.Change:
                             StateManager.ChangeState(TransitionTo);
@@ -79,25 +66,20 @@ namespace DungeonCrawl.GameScreens
                             break;
                         case ChangeType.Push:
                             StateManager.PushState(TransitionTo);
-                            break;                    
+                            break;
                     }
                 }
             }
-            
-            base.Update(gameTime);
-        }
 
-        public override void Draw(GameTime gameTime)
-        {
-            base.Draw(gameTime);
+            base.Update(gameTime);
         }
 
         public virtual void Transition(ChangeType change, BaseGameState gameState)
         {
             Transitioning = true;
-            changeType = change;
+            ChangeType = change;
             TransitionTo = gameState;
-            transitionTimer = TimeSpan.Zero;
+            TransitionTimer = TimeSpan.Zero;
         }
     }
 }

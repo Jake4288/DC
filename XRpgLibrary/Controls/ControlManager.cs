@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,14 +11,14 @@ namespace XRpgLibrary.Controls
     {
         #region Fields and Properties
 
-        int _selectedControl = 0;
+        int _selectedControl;
         bool _acceptInput = true;
 
-        static SpriteFont spriteFont;
+        static SpriteFont _spriteFont;
 
         public static SpriteFont SpriteFont
         {
-            get { return spriteFont; }
+            get { return _spriteFont; }
         }
 
         public bool AcceptInput
@@ -35,21 +33,21 @@ namespace XRpgLibrary.Controls
 
         #region Constructor Region
 
-        public ControlManager(SpriteFont spriteFont): base()
+        public ControlManager(SpriteFont spriteFont)
         {
-            ControlManager.spriteFont = spriteFont;
+            _spriteFont = spriteFont;
         }
 
         public ControlManager(SpriteFont spriteFont, int capacity)
             : base(capacity)
         {
-            ControlManager.spriteFont = spriteFont;
+            _spriteFont = spriteFont;
         }
 
         public ControlManager(SpriteFont spriteFont, IEnumerable<Control> collection) :
             base(collection)
         {
-            ControlManager.spriteFont = spriteFont;
+            _spriteFont = spriteFont;
         }
 
         #endregion

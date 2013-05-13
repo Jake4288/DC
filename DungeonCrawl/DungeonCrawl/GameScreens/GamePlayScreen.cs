@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using System.Collections.Generic;
 using DungeonCrawl.Components;
-
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-
 using XRpgLibrary;
 using XRpgLibrary.CharacterClasses;
 using XRpgLibrary.SpriteClasses;
@@ -19,9 +11,9 @@ namespace DungeonCrawl.GameScreens
     {
         #region Field and Property Region
 
-        Player _player;
-        Enemy _enemy;
-        CollisionHandler _collisionHandler;
+        private CollisionHandler _collisionHandler;
+        private Enemy _enemy;
+        private Player _player;
 
         public Player Player
         {
@@ -44,11 +36,6 @@ namespace DungeonCrawl.GameScreens
         }
 
         #endregion
-
-        public override void Initialize()
-        {
-            base.Initialize();
-        }
 
         protected override void LoadContent()
         {
@@ -90,20 +77,18 @@ namespace DungeonCrawl.GameScreens
             _player.Update(gameTime);
             _enemy.Update(gameTime);
             _collisionHandler.Update(gameTime);
-            
+
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            GameRef._spriteBatch.Begin();
-            
-            base.Draw(gameTime);
+            GameRef.SpriteBatch.Begin();
 
-            _player.Draw(gameTime, GameRef._spriteBatch);
-            _enemy.Draw(gameTime, GameRef._spriteBatch);
+            _player.Draw(gameTime, GameRef.SpriteBatch);
+            _enemy.Draw(gameTime, GameRef.SpriteBatch);
 
-            GameRef._spriteBatch.End();
+            GameRef.SpriteBatch.End();
         }
     }
 }

@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Microsoft.Xna.Framework;
-
 
 namespace XRpgLibrary
 {
-    public abstract partial class GameState : Microsoft.Xna.Framework.DrawableGameComponent
+    public abstract class GameState : DrawableGameComponent
     {
         #region Fields and Properties
 
-        List<GameComponent> _childComponents;
-        GameState _tag;
+        private readonly List<GameComponent> _childComponents;
+        private readonly GameState _tag;
         protected GameStateManager StateManager;
 
         public List<GameComponent> Components
@@ -30,7 +26,7 @@ namespace XRpgLibrary
 
         #region Constructor Region
 
-        public GameState(Game game, GameStateManager manager) : base(game)
+        protected GameState(Game game, GameStateManager manager) : base(game)
         {
             StateManager = manager;
 
@@ -40,19 +36,14 @@ namespace XRpgLibrary
 
         #endregion
 
-        public override void Initialize()
-        {
-            base.Initialize();
-        }
-
         public override void Update(GameTime gameTime)
         {
-            foreach (var component in _childComponents)
+            foreach (GameComponent component in _childComponents)
             {
                 if (component.Enabled)
                     component.Update(gameTime);
             }
-            
+
             base.Update(gameTime);
         }
 
@@ -60,7 +51,7 @@ namespace XRpgLibrary
         {
             DrawableGameComponent drawComponent;
 
-            foreach (var component in _childComponents)
+            foreach (GameComponent component in _childComponents)
             {
                 if (component is DrawableGameComponent)
                 {
@@ -70,11 +61,11 @@ namespace XRpgLibrary
                         drawComponent.Draw(gameTime);
                 }
             }
-            
+
             base.Draw(gameTime);
         }
 
-        internal protected virtual void StateChange(object sender, EventArgs e)
+        protected internal virtual void StateChange(object sender, EventArgs e)
         {
             if (StateManager.CurrentState == Tag)
                 Show();
@@ -87,12 +78,12 @@ namespace XRpgLibrary
             Visible = true;
             Enabled = true;
 
-            foreach (var component in _childComponents)
+            foreach (GameComponent component in _childComponents)
             {
                 component.Enabled = true;
                 if (component is DrawableGameComponent)
                 {
-                    ((DrawableGameComponent)component).Visible = true;
+                    ((DrawableGameComponent) component).Visible = true;
                 }
             }
         }
@@ -102,15 +93,14 @@ namespace XRpgLibrary
             Visible = false;
             Enabled = false;
 
-            foreach (var component in _childComponents)
+            foreach (GameComponent component in _childComponents)
             {
                 component.Enabled = false;
                 if (component is DrawableGameComponent)
                 {
-                    ((DrawableGameComponent)component).Visible = false;
+                    ((DrawableGameComponent) component).Visible = false;
                 }
             }
         }
-
     }
 }

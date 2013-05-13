@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\femalefighter.xnb</Output>
-      <Time>2013-05-10T08:34:50.1341242-05:00</Time>
+      <Time>2013-05-13T18:17:06.3765705-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\femalepriest.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\femalepriest.xnb</Output>
-      <Time>2013-05-10T08:34:50.1351243-05:00</Time>
+      <Time>2013-05-13T18:17:06.3775706-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\femalerogue.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\femalerogue.xnb</Output>
-      <Time>2013-05-10T08:34:50.1361244-05:00</Time>
+      <Time>2013-05-13T18:17:06.3795707-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\femalewizard.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\femalewizard.xnb</Output>
-      <Time>2013-05-10T08:34:50.1371245-05:00</Time>
+      <Time>2013-05-13T18:17:06.3805707-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\malefighter.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\malefighter.xnb</Output>
-      <Time>2013-05-10T08:34:50.1371245-05:00</Time>
+      <Time>2013-05-13T18:17:06.3815708-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\malepriest.png</Source>
@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\malepriest.xnb</Output>
-      <Time>2013-05-10T08:34:50.1381246-05:00</Time>
+      <Time>2013-05-13T18:17:06.3835709-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\malerogue.png</Source>
@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\malerogue.xnb</Output>
-      <Time>2013-05-10T08:34:50.1391247-05:00</Time>
+      <Time>2013-05-13T18:17:06.384571-05:00</Time>
     </Item>
     <Item>
       <Source>PlayerSprites\malewizard.png</Source>
@@ -71,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\malewizard.xnb</Output>
-      <Time>2013-05-10T08:34:50.1391247-05:00</Time>
+      <Time>2013-05-13T18:17:06.385571-05:00</Time>
     </Item>
     <Item>
       <Source>Backgrounds\titlescreen.png</Source>
@@ -80,7 +80,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\Backgrounds\titlescreen.xnb</Output>
-      <Time>2013-05-13T15:18:39.7940751-05:00</Time>
+      <Time>2013-05-13T18:17:06.36757-05:00</Time>
     </Item>
     <Item>
       <Source>Fonts\ControlFont.spritefont</Source>
@@ -89,7 +89,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\Fonts\ControlFont.xnb</Output>
-      <Time>2010-11-27T18:44:54-06:00</Time>
+      <Time>2013-05-13T18:17:06.3745704-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -129,7 +129,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-04-01T14:58:34.251141-05:00</Value>
+        <Value>2013-04-02T19:25:07.2994108-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

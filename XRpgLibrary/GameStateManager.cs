@@ -1,62 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Microsoft.Xna.Framework;
 
 namespace XRpgLibrary
 {
-    public enum ChangeType { Change, Pop, Push }
+    public enum ChangeType
+    {
+        Change,
+        Pop,
+        Push
+    }
 
     public class GameStateManager : GameComponent
     {
         public event EventHandler OnStateChange;
 
-        #region Fields and Properties Region
-
-        Stack<GameState> _gameStates = new Stack<GameState>();
-
-        const int StartDrawOrder = 5000;
-        const int DrawOrderInc = 100;
-        int _drawOrder;
-
-        public GameState CurrentState
-        {
-            get { return _gameStates.Peek(); }
-        }
-                
-        #endregion
-
-        #region Constructor Region
-
-        public GameStateManager(Game game) : base(game)
-        {
-            _drawOrder = StartDrawOrder;
-        }
-
-        #endregion
-
-        public override void Initialize()
-        {
-            base.Initialize();
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime);
-        }
-
         public void PopState()
         {
-            if (_gameStates.Count > 0)
-            {
-                RemoveState();
-                _drawOrder -= DrawOrderInc;
+            if (_gameStates.Count <= 0) return;
+            RemoveState();
+            _drawOrder -= DrawOrderInc;
 
-                if (OnStateChange != null)
-                    OnStateChange(this, null);
-            }
+            if (OnStateChange != null)
+                OnStateChange(this, null);
         }
 
         private void RemoveState()
@@ -77,7 +43,6 @@ namespace XRpgLibrary
 
             if (OnStateChange != null)
                 OnStateChange(this, null);
-
         }
 
         private void AddState(GameState newState)
@@ -101,7 +66,29 @@ namespace XRpgLibrary
 
             if (OnStateChange != null)
                 OnStateChange(this, null);
-
         }
+
+        #region Fields and Properties Region
+
+        private const int StartDrawOrder = 5000;
+        private const int DrawOrderInc = 100;
+        private readonly Stack<GameState> _gameStates = new Stack<GameState>();
+        private int _drawOrder;
+
+        public GameState CurrentState
+        {
+            get { return _gameStates.Peek(); }
+        }
+
+        #endregion
+
+        #region Constructor Region
+
+        public GameStateManager(Game game) : base(game)
+        {
+            _drawOrder = StartDrawOrder;
+        }
+
+        #endregion
     }
 }
