@@ -113,6 +113,8 @@
     <Compile Include="Components\Enemy.cs" />
     <Compile Include="Components\Player.cs" />
     <Compile Include="GameScreens\BaseGameState.cs" />
+    <Compile Include="GameScreens\GamePlayScreen.cs" />
+    <Compile Include="GameScreens\TitleScreen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />

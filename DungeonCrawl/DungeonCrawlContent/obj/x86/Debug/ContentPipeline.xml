@@ -73,6 +73,24 @@
       <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\PlayerSprites\malewizard.xnb</Output>
       <Time>2013-05-10T08:34:50.1391247-05:00</Time>
     </Item>
+    <Item>
+      <Source>Backgrounds\titlescreen.png</Source>
+      <Name>Backgrounds\titlescreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\Backgrounds\titlescreen.xnb</Output>
+      <Time>2013-05-13T15:18:39.7940751-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\ControlFont.spritefont</Source>
+      <Name>Fonts\ControlFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\Fonts\ControlFont.xnb</Output>
+      <Time>2010-11-27T18:44:54-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

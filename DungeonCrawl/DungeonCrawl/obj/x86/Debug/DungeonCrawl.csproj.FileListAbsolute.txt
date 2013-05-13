@@ -30,3 +30,5 @@ C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\obj\x86\Debug\ResolveAssem
 C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\obj\x86\Debug\DungeonCrawl.exe
 C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\obj\x86\Debug\DungeonCrawl.pdb
+C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\Backgrounds\titlescreen.xnb
+C:\Projects\DungeonCrawl\DC\DungeonCrawl\DungeonCrawl\bin\x86\Debug\Content\Fonts\ControlFont.xnb
