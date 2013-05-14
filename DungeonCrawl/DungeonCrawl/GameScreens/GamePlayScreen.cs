@@ -12,7 +12,7 @@ namespace DungeonCrawl.GameScreens
         #region Field and Property Region
 
         private CollisionHandler _collisionHandler;
-        private Enemy _enemy;
+        private List<Enemy> _enemies;
         private Player _player;
 
         public Player Player
@@ -21,10 +21,10 @@ namespace DungeonCrawl.GameScreens
             set { _player = value; }
         }
 
-        public Enemy Enemy
+        public List<Enemy> Enemies
         {
-            get { return _enemy; }
-            set { _enemy = value; }
+            get { return _enemies; }
+            set { _enemies = value; }
         }
 
         #endregion
@@ -40,6 +40,7 @@ namespace DungeonCrawl.GameScreens
         protected override void LoadContent()
         {
             var animations = new Dictionary<AnimationKey, Animation>();
+            _enemies = new List<Enemy>();
 
             var animation = new Animation(3, 32, 32, 0, 0);
             animations.Add(AnimationKey.Down, animation);
@@ -55,18 +56,24 @@ namespace DungeonCrawl.GameScreens
 
             var sprite = new AnimatedSprite(@"PlayerSprites\malepriest", animations, 200.0f, 1.5f);
             var enemsprite = new AnimatedSprite(@"PlayerSprites\femalepriest", animations, 100.0f, 2.0f);
-            sprite.Position = new Vector2(300, 300);
+            var enemsprite2 = new AnimatedSprite(@"PlayerSprites\femalefighter", animations, 50.0f, 2.0f);
 
-            var character = new Character(sprite);
-            var enemcharacter = new Character(enemsprite);
+            sprite.Position = new Vector2(300, 300);
+            enemsprite2.Position = new Vector2(0, 500);
+
+            var character = new Character(sprite, 40, 1);
+            var enemcharacter1 = new Character(enemsprite, 20, 10);
+            var enemcharacter2 = new Character(enemsprite2, 30, 50);
 
             _player = new Player(GameRef, character);
-            _enemy = new Enemy(GameRef, enemcharacter, _player);
+            _enemies.Add(new Enemy(GameRef, enemcharacter1, _player));
+            _enemies.Add(new Enemy(GameRef, enemcharacter2, _player));
 
             _player.LoadContent(GameRef.Content);
-            _enemy.LoadContent(GameRef.Content);
+            foreach (var enemy in _enemies)
+                enemy.LoadContent(GameRef.Content);
 
-            _collisionHandler = new CollisionHandler(GameRef, _player, _enemy);
+            _collisionHandler = new CollisionHandler(GameRef, _player, _enemies);
 
 
             base.LoadContent();
@@ -75,7 +82,8 @@ namespace DungeonCrawl.GameScreens
         public override void Update(GameTime gameTime)
         {
             _player.Update(gameTime);
-            _enemy.Update(gameTime);
+            foreach (var enemy in _enemies)
+                enemy.Update(gameTime);
             _collisionHandler.Update(gameTime);
 
             base.Update(gameTime);
@@ -86,7 +94,8 @@ namespace DungeonCrawl.GameScreens
             GameRef.SpriteBatch.Begin();
 
             _player.Draw(gameTime, GameRef.SpriteBatch);
-            _enemy.Draw(gameTime, GameRef.SpriteBatch);
+            foreach (var enemy in Enemies)
+                enemy.Draw(gameTime, GameRef.SpriteBatch);
 
             GameRef.SpriteBatch.End();
         }

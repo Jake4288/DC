@@ -14,9 +14,10 @@ namespace DungeonCrawl.Components
         #region Field Region
 
         private readonly Character _character;
-        private readonly List<Fireball> _fireballs = new List<Fireball>();
+        private readonly List<Projectile> _projectiles = new List<Projectile>();
         private ContentManager _contentManager;
-        private Game1 _gameRef;
+        private readonly Game1 _gameRef;
+        private int _projectileType = 1;
 
         #endregion
 
@@ -32,9 +33,9 @@ namespace DungeonCrawl.Components
             get { return _character; }
         }
 
-        public List<Fireball> Fireballs
+        public List<Projectile> Projectiles
         {
-            get { return _fireballs; }
+            get { return _projectiles; }
         }
 
         #endregion
@@ -54,32 +55,36 @@ namespace DungeonCrawl.Components
             return Sprite.Position;
         }
 
-        private void UpdateFireball(GameTime gameTime)
+        private void UpdateProjectile(GameTime gameTime)
         {
-            foreach (Fireball fireball in _fireballs)
+            foreach (var projectile in _projectiles)
             {
-                fireball.Update(gameTime);
+                projectile.Update(gameTime);
             }
 
+            if (InputHandler.KeyPressed(Keys.D1))
+                _projectileType = 1;
+            else if (InputHandler.KeyPressed(Keys.D2))
+                _projectileType = 2;
             if (InputHandler.KeyPressed(Keys.Right))
             {
-                ShootFireball(new Vector2(1, 0));
+                ShootProjectile(new Vector2(1, 0));
             }
             else if (InputHandler.KeyPressed(Keys.Left))
             {
-                ShootFireball(new Vector2(-1, 0));
+                ShootProjectile(new Vector2(-1, 0));
             }
             else if (InputHandler.KeyPressed(Keys.Up))
             {
-                ShootFireball(new Vector2(0, -1));
+                ShootProjectile(new Vector2(0, -1));
             }
             else if (InputHandler.KeyPressed(Keys.Down))
             {
-                ShootFireball(new Vector2(0, 1));
+                ShootProjectile(new Vector2(0, 1));
             }
         }
 
-        private void ShootFireball(Vector2 direction)
+        private void ShootProjectile(Vector2 direction)
         {
             var animations = new Dictionary<AnimationKey, Animation>();
 
@@ -95,24 +100,58 @@ namespace DungeonCrawl.Components
             animation = new Animation(3, 32, 32, 0, 96);
             animations.Add(AnimationKey.Up, animation);
 
-
-            bool createNew = true;
-            foreach (Fireball fireball in _fireballs)
+            switch (_projectileType)
             {
-                if (fireball.Visible == false)
+                case 1:
+                    ShootFireball(direction, animations);
+                    break;
+                case 2:
+                    ShootMeteor(direction, animations);
+                    break;
+            }
+        }
+
+        private void ShootFireball(Vector2 direction, Dictionary<AnimationKey, Animation> animations)
+        {
+            var createNew = true;
+            foreach (var projectile in _projectiles)
+            {
+                if (projectile.Visible == false && projectile is Fireball)
                 {
                     createNew = false;
-                    fireball.Fire(GetPosition(), 1000.0f, direction);
+                    projectile.Fire(GetPosition(), 1000.0f, direction);
                     break;
                 }
             }
 
             if (createNew)
             {
-                var fireball = new Fireball(@"PlayerSprites\femalefighter", animations, 800.0f, 1.0f);
+                var fireball = new Fireball(animations, 1.0f);
                 fireball.LoadContent(_contentManager);
                 fireball.Fire(GetPosition(), 1000.0f, direction);
-                _fireballs.Add(fireball);
+                _projectiles.Add(fireball);
+            }
+        }
+
+        private void ShootMeteor(Vector2 direction, Dictionary<AnimationKey, Animation> animations)
+        {
+            var createNew = true;
+            foreach (var projectile in _projectiles)
+            {
+                if (projectile.Visible == false && projectile is Meteor)
+                {
+                    createNew = false;
+                    projectile.Fire(GetPosition(), 1000.0f, direction);
+                    break;
+                }
+            }
+
+            if (createNew)
+            {
+                var meteor = new Meteor(animations, 1.0f);
+                meteor.LoadContent(_contentManager);
+                meteor.Fire(GetPosition(), 1000.0f, direction);
+                _projectiles.Add(meteor);
             }
         }
 
@@ -149,7 +188,7 @@ namespace DungeonCrawl.Components
         {
             _contentManager = contentManager;
 
-            foreach (Fireball fireball in _fireballs)
+            foreach (Fireball fireball in _projectiles)
             {
                 fireball.LoadContent(contentManager);
             }
@@ -198,14 +237,14 @@ namespace DungeonCrawl.Components
             }
             LockSprite();
 
-            UpdateFireball(gameTime);
+            UpdateProjectile(gameTime);
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            foreach (Fireball fireball in _fireballs)
+            foreach (Projectile projectile in _projectiles)
             {
-                fireball.Draw(gameTime, spriteBatch);
+                projectile.Draw(gameTime, spriteBatch);
             }
 
             _character.Draw(gameTime, spriteBatch);

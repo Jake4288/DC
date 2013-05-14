@@ -20,13 +20,18 @@ namespace XRpgLibrary.CharacterClasses
             get { return sprite; }
         }
 
+
+        public int Hp { get; set; }
+        public int Damage { get; set; }
         #endregion
 
         #region Constructor Region
 
-        public Character(AnimatedSprite sprite)
+        public Character(AnimatedSprite sprite, int hp, int damage)
         {
             this.sprite = sprite;
+            Hp = hp;
+            Damage = damage;
         }
 
         #endregion
@@ -44,6 +49,11 @@ namespace XRpgLibrary.CharacterClasses
         public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             sprite.Draw(gameTime, spriteBatch);
+        }
+
+        public void ReduceHp(int amount)
+        {
+            Hp -= amount;
         }
     }
 }
