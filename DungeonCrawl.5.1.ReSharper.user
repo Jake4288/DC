@@ -1,0 +1,210 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="public" priority="6" />
+      <Item value="int" priority="7" />
+      <Item value="this" priority="1" />
+      <Item value="hp" priority="0" />
+      <Item value="void" priority="2" />
+      <Item value="Hp" priority="0" />
+      <Item value="amount" priority="0" />
+      <Item value="if" priority="10" />
+      <Item value="_enemy" priority="2" />
+      <Item value="_game" priority="3" />
+      <Item value="_player" priority="5" />
+      <Item value="fireball" priority="2" />
+      <Item value="var" priority="8" />
+      <Item value="new" priority="5" />
+      <Item value="List" priority="3" />
+      <Item value="Fireball`0" priority="2" />
+      <Item value="listOfFireballsToRemove" priority="0" />
+      <Item value="foreach" priority="6" />
+      <Item value="Game`0" priority="1" />
+      <Item value="enemsprite" priority="1" />
+      <Item value="Character`0" priority="0" />
+      <Item value="enemsprite2" priority="0" />
+      <Item value="Vector2" priority="0" />
+      <Item value="Enemy`0" priority="4" />
+      <Item value="GameRef" priority="0" />
+      <Item value="enemcharacter2" priority="0" />
+      <Item value="player" priority="0" />
+      <Item value="private" priority="10" />
+      <Item value="_enemy2" priority="0" />
+      <Item value="gameTime" priority="5" />
+      <Item value="_enemies" priority="6" />
+      <Item value="in" priority="4" />
+      <Item value="enemy" priority="2" />
+      <Item value="listOfEnemiesToRemove" priority="1" />
+      <Item value="List&lt;Enemy&gt;" priority="0" />
+      <Item value="base" priority="0" />
+      <Item value="asset" priority="0" />
+      <Item value="animation" priority="0" />
+      <Item value="speed" priority="1" />
+      <Item value="scale" priority="0" />
+      <Item value="Projectile`0" priority="3" />
+      <Item value="projectile" priority="4" />
+      <Item value="Damage" priority="1" />
+      <Item value="damage" priority="1" />
+      <Item value="InputHandler`0" priority="1" />
+      <Item value="Keys`0" priority="1" />
+      <Item value="_projectileType" priority="3" />
+      <Item value="else" priority="1" />
+      <Item value="is" priority="0" />
+      <Item value="Vector2`0" priority="1" />
+      <Item value="Animation`0" priority="1" />
+      <Item value="animations" priority="0" />
+      <Item value="Dictionary" priority="0" />
+      <Item value="AnimationKey`0" priority="0" />
+      <Item value="meteor" priority="0" />
+      <Item value="Speed" priority="0" />
+      <Item value="const" priority="0" />
+      <Item value="bool" priority="1" />
+      <Item value="_immune" priority="4" />
+      <Item value="true" priority="0" />
+      <Item value="return" priority="1" />
+      <Item value="TimeSpan`0" priority="2" />
+      <Item value="_immuneTimer" priority="2" />
+      <Item value="_immuneWindow" priority="0" />
+      <Item value="false" priority="1" />
+      <Item value="readonly" priority="0" />
+      <Item value="using" priority="3" />
+      <Item value="XRpgLibrary" priority="1" />
+      <Item value="Weapons" priority="0" />
+      <Item value="Microsoft" priority="1" />
+      <Item value="Xna" priority="1" />
+      <Item value="Framework" priority="1" />
+      <Item value="_playerPosition" priority="1" />
+      <Item value="value" priority="0" />
+      <Item value="SpriteClasses" priority="0" />
+      <Item value="GameTime`0" priority="1" />
+      <Item value="Graphics" priority="0" />
+      <Item value="SpriteBatch`0" priority="0" />
+      <Item value="float" priority="1" />
+      <Item value="Sprite" priority="0" />
+      <Item value="spriteBatch" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:XRpgLibrary.CharacterClasses.Character">
+      <Item value="Hp" priority="2" />
+      <Item value="ReduceHp`0" priority="1" />
+      <Item value="Damage" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DungeonCrawl.Components.Enemy">
+      <Item value="Character" priority="2" />
+      <Item value="Sprite" priority="0" />
+      <Item value="Update`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Xna.Framework.Game">
+      <Item value="Exit`0" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DungeonCrawl.Components.Player">
+      <Item value="Fireballs" priority="1" />
+      <Item value="Sprite" priority="0" />
+      <Item value="Projectiles" priority="2" />
+      <Item value="Character" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Remove`0" priority="2" />
+      <Item value="Add`0" priority="3" />
+      <Item value="Count" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:XRpgLibrary.SpriteClasses.AnimatedSprite">
+      <Item value="CollisionRectangle" priority="1" />
+      <Item value="Position" priority="0" />
+      <Item value="Draw`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Xna.Framework.Rectangle">
+      <Item value="Intersects`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:XRpgLibrary.SpriteClasses.Projectile">
+      <Item value="Damage" priority="0" />
+      <Item value="GetType`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@XRpgLibrary.InputHandler">
+      <Item value="KeyPressed`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Xna.Framework.Input.Keys">
+      <Item value="D1" priority="0" />
+      <Item value="D2" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.TimeSpan">
+      <Item value="FromSeconds`0" priority="0" />
+      <Item value="Zero" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Xna.Framework.GameTime">
+      <Item value="ElapsedGameTime" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.TimeSpan">
+      <Item value="Seconds" priority="0" />
+      <Item value="TotalSeconds" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:Properties/f:AssemblyInfo.cs" caret="26" fromTop="1" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Properties/f:AssemblyInfo.cs" caret="26" fromTop="1" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/f:InputHandler.cs" caret="274" fromTop="0" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:SpriteClasses/f:Fireball.cs" caret="124" fromTop="6" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:SpriteClasses/f:Meteor.cs" caret="120" fromTop="5" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:SpriteClasses/f:Projectile.cs" caret="403" fromTop="15" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:CollisionHandler.cs" caret="1469" fromTop="5" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:GameScreens/f:GamePlayScreen.cs" caret="3315" fromTop="9" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:SpriteClasses/f:AnimatedSprite.cs" caret="258" fromTop="0" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:Player.cs" caret="303" fromTop="0" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:CharacterClasses/f:Character.cs" caret="255" fromTop="0" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:GameScreens/f:BaseGameState.cs" caret="1289" fromTop="29" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/f:Class1.cs" caret="1915" fromTop="45" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:Weapons/f:Sword.cs" caret="814" fromTop="0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:Player.cs" caret="4387" fromTop="6" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:Player.cs" caret="4847" fromTop="8" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:Player.cs" caret="710" fromTop="8" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:SpriteClasses/f:Projectile.cs" caret="1663" fromTop="10" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:SpriteClasses/f:Projectile.cs" caret="693" fromTop="22" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:CharacterClasses/f:Character.cs" caret="534" fromTop="7" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:CharacterClasses/f:Character.cs" caret="763" fromTop="16" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:CollisionHandler.cs" caret="1590" fromTop="7" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:CollisionHandler.cs" caret="1901" fromTop="14" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:CollisionHandler.cs" caret="80" fromTop="2" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:CollisionHandler.cs" caret="1211" fromTop="15" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:CollisionHandler.cs" caret="438" fromTop="14" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:CollisionHandler.cs" caret="1469" fromTop="5" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:GameScreens/f:GamePlayScreen.cs" caret="2199" fromTop="6" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:GameScreens/f:GamePlayScreen.cs" caret="3324" fromTop="9" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:Player.cs" caret="577" fromTop="17" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:Player.cs" caret="377" fromTop="11" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/d:Components/f:Player.cs" caret="303" fromTop="8" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/f:Class1.cs" caret="768" fromTop="23" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/f:Class1.cs" caret="1613" fromTop="7" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/f:Class1.cs" caret="2180" fromTop="18" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/f:Class1.cs" caret="277" fromTop="6" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/f:Class1.cs" caret="1263" fromTop="13" />
+      <File id="223048D9-3927-4C29-B308-C16DF61C25C7/f:Class1.cs" caret="586" fromTop="19" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:Weapons/f:Sword.cs" caret="163" fromTop="6" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:Weapons/f:Sword.cs" caret="1440" fromTop="18" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:Weapons/f:Sword.cs" caret="1581" fromTop="14" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:Weapons/f:Sword.cs" caret="376" fromTop="9" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:Weapons/f:Sword.cs" caret="829" fromTop="15" />
+      <File id="2B3BF87F-80E1-4EE8-9528-A31206B754DB/d:Weapons/f:Sword.cs" caret="731" fromTop="9" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>
