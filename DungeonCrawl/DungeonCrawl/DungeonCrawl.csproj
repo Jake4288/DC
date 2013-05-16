@@ -109,6 +109,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttackClasses\Attack.cs" />
+    <Compile Include="AttackClasses\Sword.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Components\CollisionHandler.cs" />
     <Compile Include="Components\Enemy.cs" />

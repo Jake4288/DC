@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework.Input;
 using XRpgLibrary;
 using XRpgLibrary.CharacterClasses;
 using XRpgLibrary.SpriteClasses;
-using XRpgLibrary.Weapons;
 
 namespace DungeonCrawl.Components
 {
@@ -16,7 +15,6 @@ namespace DungeonCrawl.Components
 
         private readonly Character _character;
         private readonly List<Projectile> _projectiles = new List<Projectile>();
-        private readonly Sword _sword;
         private ContentManager _contentManager;
         private readonly Game1 _gameRef;
         private int _projectileType = 1;
